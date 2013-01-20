@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>var adeca = {};</script>
+    <script src="../lib/jquery.js"></script>
+    <script src="../js/engine.main.js"></script>
+    <script src="../js/engine.intro.js"></script>
+    <script src="../js/engine.game.js"></script>
+    <script src="../js/sprite.js"></script>
+    <style type="text/css">#screen {width: 800px; height:800px;}</style>
+    <link rel="stylesheet" href="big-canvas-runner.css"/>
+  </head>
+  <body>
+    <div id="container" >
+        <canvas id="screen" width="800px" height="800px">
+            <div>Sorry, this game requires canvas support.</div>
+        </canvas>
+        <div id="images">
+            <img id="runner" src="../Decathlon/Runner_Default_Sprites.png" />
+        </div>
+    </div>
+    
+    <script>
+        $(document).ready(function() {
+            adeca.canvas = $('#screen')[0].getContext('2d');
+            
+            adeca.engine.main.state('game');
+            adeca.engine.main.tick();
+        });
+    </script>
+  </body>
+</html>
