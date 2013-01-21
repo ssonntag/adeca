@@ -6,6 +6,8 @@
         the amount of animation frames are in the spritesheet image. default: 1 (=keeps "looping" only the first spriteframe)
     frameDelay: 
         the time between frames in animation, milliseconds. default: 70
+    initialDelay:
+        the time before this sprite appears, milliseconds. default: 0
     initialX: 
         the upper left x coordinates on canvas where to place the sprite. default: 0
     initialY: 
