@@ -100,10 +100,15 @@ adeca.Sprite = function(spriteOptions) {
         } else {
             this.finalizer = false;
         }
+        if (typeof spriteOptions.initialDelay ==='undefined') {
+            this.initialDelayFrames = 0;
+        } else {
+            this.initialDelayFrames = spriteOptions.initialDelay / (1000/60);
+        }
 
         this.framesRun = 0;
         this.started = false;
-        this.visible = true;
+        this.visible = false;
     }
     this.tick = function() {
         if (this.started) {
@@ -130,8 +135,11 @@ adeca.Sprite = function(spriteOptions) {
                     }
                 }
             }
+        } else if (this.initialDelayFrames > 0) {
+            this.initialDelayFrames--;
         } else {
             this.started = true;
+            this.visible = true;
             this.currentAnimationFrameIndex = 1;
             this.xPos = this.initialX;
             this.yPos = this.initialY;
